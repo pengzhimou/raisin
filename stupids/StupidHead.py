@@ -1,6 +1,14 @@
 # %% 引入包
 import pandas as pd
 import math
+
+
+import matplotlib as mpl
+import platform
+if platform.platform().startswith("Linux"):
+    mpl.use("TkAgg") # Use TKAgg to show figures
+
+
 import matplotlib.pyplot as plt
 import talib  # http://mrjbq7.github.io/ta-lib/doc_index.html
 import numpy as np
@@ -11,7 +19,6 @@ import importlib
 import warnings
 
 warnings.filterwarnings('ignore')
-
 plt.rcParams['font.sans-serif'] = 'SimHei'
 plt.rcParams['axes.unicode_minus'] = False
 
