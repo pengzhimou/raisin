@@ -1,0 +1,5 @@
+ta-lib
+pandas
+matplotlib
+sqlalchemy
+hyperopt

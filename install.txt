@@ -2,3 +2,8 @@ https://stackoverflow.com/questions/74651107/failed-to-build-ta-lib-error-could-
 
 https://ta-lib.org/hdr_dw.html
 https://pypi.org/project/TA-Lib
+
+macos brew install ta-lib
+linux download make install
+(venv) ➜  raisin git:(main) ✗ pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+Writing to /Users/robinpeng/.config/pip/pip.conf
