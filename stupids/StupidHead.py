@@ -2,12 +2,10 @@
 import pandas as pd
 import math
 
-
 import matplotlib as mpl
 import platform
 if platform.platform().startswith("Linux"):
-    mpl.use("TkAgg") # Use TKAgg to show figures
-
+    mpl.use("TkAgg")  # Use TKAgg to show figures
 
 import matplotlib.pyplot as plt
 import talib  # http://mrjbq7.github.io/ta-lib/doc_index.html
@@ -17,11 +15,11 @@ from hyperopt import tpe, hp, fmin, STATUS_OK, Trials
 from hyperopt.pyll.base import scope
 import importlib
 import warnings
+import time
 
 warnings.filterwarnings('ignore')
 plt.rcParams['font.sans-serif'] = 'SimHei'
 plt.rcParams['axes.unicode_minus'] = False
-
 
 # %% 自定义函数
 
@@ -33,6 +31,7 @@ def setpos(pos, *args):
 
 
 def CalculateResult(HQDf):
+
     def get_max_drawdown(array):
         array = pd.Series(array)
         cummax = array.cummax()
@@ -46,7 +45,10 @@ def CalculateResult(HQDf):
     HQDf['strategy_balance'] = 1.0
     for i in range(0, len(HQDf)):
         if i > 0:
-            HQDf.loc[HQDf.index[i], 'strategy_balance'] = HQDf.iloc[i - 1]['strategy_balance'] * (1. + HQDf.iloc[i]['chg'] * HQDf.iloc[i - 1]['pos'])
+            HQDf.loc[
+                HQDf.index[i],
+                'strategy_balance'] = HQDf.iloc[i - 1]['strategy_balance'] * (
+                    1. + HQDf.iloc[i]['chg'] * HQDf.iloc[i - 1]['pos'])
     HQDf['drawdown'] = get_max_drawdown(HQDf['strategy_balance'])  # 回撤
     StatDf = {}
     StatDf['MaxDrawDown'] = min(HQDf['drawdown'])  # 最大回撤
@@ -56,8 +58,10 @@ def CalculateResult(HQDf):
     if years <= 1:
         StatDf['yearReturn'] = StatDf['return'] / years
     else:
-        StatDf['yearReturn'] = (HQDf['strategy_balance'][-1] / 1) ** (1 / years) - 1
-    StatDf['return/maxdrawdown'] = -1 * StatDf['return'] / StatDf['MaxDrawDown']
+        StatDf['yearReturn'] = (HQDf['strategy_balance'][-1] / 1)**(1 /
+                                                                    years) - 1
+    StatDf[
+        'return/maxdrawdown'] = -1 * StatDf['return'] / StatDf['MaxDrawDown']
 
     # 计算夏普比
     x = HQDf["strategy_balance"] / HQDf["strategy_balance"].shift(1)
@@ -66,35 +70,51 @@ def CalculateResult(HQDf):
     daily_return = HQDf["return"].mean() * 100
     return_std = HQDf["return"].std() * 100
     daily_risk_free = 0.015 / np.sqrt(240)
-    StatDf['sharpe_ratio'] = (daily_return - daily_risk_free) / return_std * np.sqrt(240)
+    StatDf['sharpe_ratio'] = (daily_return -
+                              daily_risk_free) / return_std * np.sqrt(240)
     # HQDf = HQDf.dropna()
     return HQDf, StatDf
 
 
 def plotResult(HQDf):
     fig, axes = plt.subplots(4, 1, figsize=(16, 12))
-    HQDf.loc[:, ['base_balance', 'strategy_balance']].plot(ax=axes[0], title='净值曲线')
+    HQDf.loc[:, ['base_balance', 'strategy_balance']].plot(ax=axes[0],
+                                                           title='净值曲线')
     HQDf.loc[:, ['drawdown']].plot(ax=axes[1], title='回撤', kind='area')
-    HQDf.loc[:, ['pos']].plot(ax=axes[2], title='仓位', kind='area', stacked=False)
+    HQDf.loc[:, ['pos']].plot(ax=axes[2],
+                              title='仓位',
+                              kind='area',
+                              stacked=False)
     HQDf['empty'] = HQDf.close[HQDf.pos == 0]
     HQDf['long'] = HQDf.close[HQDf.pos > 0]
     HQDf['short'] = HQDf.close[HQDf.pos < 0]
-    HQDf.loc[:, ['long', 'short', 'empty']].plot(ax=axes[3], title='开平仓点位', color=["r", "g", "grey"])
+    HQDf.loc[:, ['long', 'short', 'empty']].plot(ax=axes[3],
+                                                 title='开平仓点位',
+                                                 color=["r", "g", "grey"])
     plt.show()
 
 
 def CTA(HQDf, loadBars, func, **kwargs):
-    HQDf['pos'] = np.nan
+    HQDf['pos'] = np.nan  # 加了一列 pos到最后
     # for idx, hq in tqdm(HQDf.iterrows()):
     for idx, hq in HQDf.iterrows():
-        TradedHQDf = HQDf[:idx]
-        idx_num = TradedHQDf.shape[0]
-        if idx_num < loadBars:
+
+        TradedHQDf = HQDf[:idx]  # 每次处理本日前所有数据，递增
+        ineridx = TradedHQDf.shape[0]  # 一行内的idx
+        if ineridx < loadBars:  # 分析周期，最少多少天
             continue
-        func(TradedHQDf, HQDf, idx, idx_num, **kwargs)
-        HQDf[:idx].pos = HQDf[:idx].pos.fillna(method='ffill')
+        func(TradedHQDf, HQDf, idx, ineridx, **kwargs)  # 策略函数处理上面周期的数据
+        HQDf[:idx].pos = HQDf[:idx].pos.fillna(
+            method='ffill',inplace=True)  # 本次处理本日前所有的都fillna
+
+
+    # for idx, hq in HQDf.iterrows():
+    #     HQDf[:idx].pos = HQDf[:idx].pos.fillna(
+    #         method='ffill')  # 本次处理本日前所有的都fillna
+
+
+
     HQDf, StatDf = CalculateResult(HQDf)
-    # print(StatDf)
     return HQDf, StatDf
 
 
@@ -111,14 +131,11 @@ def hypeFun(space, target):
         return {"loss": -StatDf[target], "status": STATUS_OK}
 
     trials = Trials()
-    best = fmin(
-        fn=hyperparameter_tuning,
-        space=space,
-        algo=tpe.suggest,
-        max_evals=100,
-        trials=trials
-    )
+    best = fmin(fn=hyperparameter_tuning,
+                space=space,
+                algo=tpe.suggest,
+                max_evals=100,
+                trials=trials)
 
-    print("Best: {}".format(best))
+    print("hypeFun Best: {}".format(best))
     return trials, best
-
