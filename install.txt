@@ -64,3 +64,8 @@ https://blog.csdn.net/liyuanjinglyj/article/details/113401385
 
 
 
+import pandas as pd
+from xlwings import view
+
+df = pd.DataFrame({'A':[1,2], 'B':[3,4]})
+view(df)
