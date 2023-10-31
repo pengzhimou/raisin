@@ -22,11 +22,11 @@ def doubleMa(*args, **kwargs):
 
 if __name__ == '__main__':
     # 修饰原始数据部分
-    # HQDf = pd.read_csv('data/T888_1d.csv',
-    #                    index_col='date')  # 0 1 2 index换成date这一列作为index
+    HQDf = pd.read_csv('data/T888_1d.csv',
+                       index_col='date')  # 0 1 2 index换成date这一列作为index
     
-    HQDf = pd.read_csv('data/T888_15m.csv',
-                       index_col='datetime')  # 0 1 2 index换成date这一列作为index
+    # HQDf = pd.read_csv('data/T888_15m.csv',
+    #                    index_col='datetime')  # 0 1 2 index换成date这一列作为index
 
     HQDf.index = pd.to_datetime(HQDf.index)  # 转成2020-01-02 补0的格式
 
