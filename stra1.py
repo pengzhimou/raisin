@@ -34,9 +34,11 @@ if __name__ == '__main__':
     # # 根据传入的策略进行分析
     ctaParas = {'fast': 5, 'slow': 10}
     ResultTSDf, StatDf = CTA(HQDf, 30, doubleMa, **ctaParas)
+    #### debug part begin
     print("-----result1-----")
     print(StatDf)
-    # view(ResultTSDf)
+    view(ResultTSDf)
+    #### debug part over
     # 绘图部分
     plotResult(ResultTSDf)
     ResultTSDf.to_csv('data/new1.csv')
@@ -57,9 +59,11 @@ if __name__ == '__main__':
     # trials, best = hypeFun(space, 'sharpe_ratio')
 
     # BestResultTSDf, BestStatDf = CTA(HQDf, 30, doubleMa, **best)
+    # #### debug part begin
     # print("-----result-----")
     # print(BestStatDf)
     # view(BestResultTSDf)
+    # #### debug part over
 
     # # 绘图部分
     # plotResult(BestResultTSDf)

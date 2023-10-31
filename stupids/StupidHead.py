@@ -16,6 +16,7 @@ from hyperopt.pyll.base import scope
 import importlib
 import warnings
 import time
+from xlwings import view
 
 warnings.filterwarnings('ignore')
 plt.rcParams['font.sans-serif'] = 'SimHei'
@@ -104,15 +105,13 @@ def CTA(HQDf, loadBars, func, **kwargs):
         if ineridx < loadBars:  # 分析周期，最少多少天
             continue
         func(TradedHQDf, HQDf, idx, ineridx, **kwargs)  # 策略函数处理上面周期的数据
+    else:
         HQDf[:idx].pos = HQDf[:idx].pos.fillna(
-            method='ffill',inplace=True)  # 本次处理本日前所有的都fillna
+        method='ffill',inplace=True)  # 本次处理本日前所有的都fillna
 
-
-    # for idx, hq in HQDf.iterrows():
-    #     HQDf[:idx].pos = HQDf[:idx].pos.fillna(
-    #         method='ffill')  # 本次处理本日前所有的都fillna
-
-
+    # #### debug part begin
+    # view(HQDf)
+    # #### debug part over
 
     HQDf, StatDf = CalculateResult(HQDf)
     return HQDf, StatDf
