@@ -32,35 +32,35 @@ if __name__ == '__main__':
 
     ################# part 1
     # # 根据传入的策略进行分析
-    # ctaParas = {'fast': 5, 'slow': 10}
-    # ResultTSDf, StatDf = CTA(HQDf, 30, doubleMa, **ctaParas)
-    # print("-----result1-----")
-    # print(StatDf)
-    # # view(ResultTSDf)
-    # # 绘图部分
-    # plotResult(ResultTSDf)
-    # ResultTSDf.to_csv('data/new1.csv')
+    ctaParas = {'fast': 5, 'slow': 10}
+    ResultTSDf, StatDf = CTA(HQDf, 30, doubleMa, **ctaParas)
+    print("-----result1-----")
+    print(StatDf)
+    # view(ResultTSDf)
+    # 绘图部分
+    plotResult(ResultTSDf)
+    ResultTSDf.to_csv('data/new1.csv')
 
     # ################# part 2
     # # sapce 是参数空间，定义贝叶斯搜索的空间
     # # func 技术指标名称
     # # fast slow 为技术指标的参数范围
-    space = {
-            "HQDf": HQDf,
-            "loadBars": 40,
-            "func": doubleMa,
-            "fast": hp.quniform("fast", 3, 30, 1),
-            "slow": hp.quniform("slow", 5, 40, 1),
-        }
+    # space = {
+    #         "HQDf": HQDf,
+    #         "loadBars": 40,
+    #         "func": doubleMa,
+    #         "fast": hp.quniform("fast", 3, 30, 1),
+    #         "slow": hp.quniform("slow", 5, 40, 1),
+    #     }
 
-    # 调用贝叶斯搜索，第一个参数为参数空间，第二个为优化目标（求解优化目标极值）
-    trials, best = hypeFun(space, 'sharpe_ratio')
+    # # 调用贝叶斯搜索，第一个参数为参数空间，第二个为优化目标（求解优化目标极值）
+    # trials, best = hypeFun(space, 'sharpe_ratio')
 
-    BestResultTSDf, BestStatDf = CTA(HQDf, 30, doubleMa, **best)
-    print("-----result-----")
-    print(BestStatDf)
-    view(BestResultTSDf)
+    # BestResultTSDf, BestStatDf = CTA(HQDf, 30, doubleMa, **best)
+    # print("-----result-----")
+    # print(BestStatDf)
+    # view(BestResultTSDf)
 
-    # 绘图部分
-    plotResult(BestResultTSDf)
-    BestResultTSDf.to_csv('data/new2.csv')
+    # # 绘图部分
+    # plotResult(BestResultTSDf)
+    # BestResultTSDf.to_csv('data/new2.csv')
