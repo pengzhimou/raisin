@@ -71,8 +71,7 @@ def CalculateResult(HQDf: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     daily_return = HQDf["return"].mean() * 100
     return_std = HQDf["return"].std() * 100
     daily_risk_free = 0.015 / np.sqrt(240)
-    StatDf['sharpe_ratio'] = (daily_return -
-                              daily_risk_free) / return_std * np.sqrt(240)
+    StatDf['sharpe_ratio'] = (daily_return - daily_risk_free) / return_std * np.sqrt(240)
     # HQDf = HQDf.dropna()
     return HQDf, StatDf
 
