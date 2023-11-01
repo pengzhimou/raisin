@@ -69,3 +69,26 @@ from xlwings import view
 
 df = pd.DataFrame({'A':[1,2], 'B':[3,4]})
 view(df)
+
+
+
+
+
+
+
+https://zhuanlan.zhihu.com/p/419955374
+
+https://zhuanlan.zhihu.com/p/112635758
+
+
+https://zhuanlan.zhihu.com/p/349346533
+
+
+
+
+
+
+
+
+
+

@@ -40,8 +40,8 @@ if __name__ == '__main__':
     view(ResultTSDf)
     #### debug part over
     # 绘图部分
+    # ResultTSDf.to_csv('data/new1.csv')
     plotResult(ResultTSDf)
-    ResultTSDf.to_csv('data/new1.csv')
 
     # ################# part 2
     # # sapce 是参数空间，定义贝叶斯搜索的空间
@@ -66,5 +66,5 @@ if __name__ == '__main__':
     # #### debug part over
 
     # # 绘图部分
-    # plotResult(BestResultTSDf)
     # BestResultTSDf.to_csv('data/new2.csv')
+    # plotResult(BestResultTSDf)
