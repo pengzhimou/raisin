@@ -1,0 +1,56 @@
+时间序列 = 趋势项 + 周期项 + 自相关项 + 残差
+
+
+趋势项 该序列【均值】的【持续】的【长期】的变化，移动最慢的部分， 一般使用移动平均线
+
+df=pd.DataFrame
+df["m20"].rolling(20).mean()
+df.set_index('date').plot()
+
+
+周期项 围绕趋势的周期震荡，波浪或震荡
+
+def plot_season(Df, DateColName, ValueColName):
+    df = Df.copy()
+    # 计算每周属于哪一年
+    df['year'] = df[DateColName].dt.year
+    # 计算每周为一年当中的第几周
+    df['week_of_year'] = df[DateColName].dt.weekofyear
+
+    for year in df['year'].unique():
+        tmp_df = df[df['year'] == year]
+        plt.plot(tmp_df['week_of_year'], tmp_df[ValueColName], '.-', label=str(year))
+    
+    plt.legend()
+    plt.show()
+
+
+
+
+from statsmodels.graphics.tsaplots import plot_acf
+plot_acf(Df['amt'], lags=500).show()
+
+
+
+
+
+#内嵌画图
+%matplotlib inline
+import matplotlib # 注意这个也要import一次
+import matplotlib.pyplot as plt
+myfont = matplotlib.font_manager.FontProperties(fname=r'C:/Windows/Fonts/msyh.ttf') # 这一行
+plt.plot((1,2,3),(4,3,-1))
+plt.xlabel(u'横坐标',  fontproperties=myfont) # 这一段
+plt.ylabel(u'纵坐标',  fontproperties=myfont) # 这一段
+#plt.show() # 有了%matplotlib inline 就可以省掉plt.show()了
+
+————————————————
+版权声明：本文为CSDN博主「LthID」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/liangzuojiayi/article/details/78183783
+
+
+
+
+
+
+
