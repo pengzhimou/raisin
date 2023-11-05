@@ -48,12 +48,12 @@ df = pd.read_csv('yhAAPL.csv',
 
 
 # Show teh data
-df
-plt.figure(figsize=(16,6))
-plt.title('Close Price History')
-plt.plot(df['Close'])
-plt.xlabel('Date', fontsize=18)
-plt.ylabel('Close Price USD ($)', fontsize=18)
+# df
+# plt.figure(figsize=(16,6))
+# plt.title('Close Price History')
+# plt.plot(df['Close'])
+# plt.xlabel('Date', fontsize=18)
+# plt.ylabel('Close Price USD ($)', fontsize=18)
 # plt.show()
 
 # Create a new dataframe with only the 'Close column 

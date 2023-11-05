@@ -53,14 +53,6 @@ brew install fontconfig
 （4）再执行 fc-cache -fv 刷新字体缓存
 
 
-https://zhuanlan.zhihu.com/p/340441922
-
-
-https://zhuanlan.zhihu.com/p/342873841
-
-https://blog.csdn.net/liyuanjinglyj/article/details/113401385
-
-
 
 
 
@@ -76,12 +68,6 @@ view(df)
 
 
 
-https://zhuanlan.zhihu.com/p/419955374
-
-https://zhuanlan.zhihu.com/p/112635758
-
-
-https://zhuanlan.zhihu.com/p/349346533
 
 
 

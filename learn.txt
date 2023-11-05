@@ -49,8 +49,22 @@ plt.ylabel(u'纵坐标',  fontproperties=myfont) # 这一段
 原文链接：https://blog.csdn.net/liangzuojiayi/article/details/78183783
 
 
+https://zhuanlan.zhihu.com/p/340441922
+
+
+https://zhuanlan.zhihu.com/p/342873841
+
+https://blog.csdn.net/liyuanjinglyj/article/details/113401385
 
 
 
+https://zhuanlan.zhihu.com/p/419955374
+
+https://zhuanlan.zhihu.com/p/112635758
+
+
+https://zhuanlan.zhihu.com/p/349346533
+
+https://zhuanlan.zhihu.com/p/470803137
 
 
