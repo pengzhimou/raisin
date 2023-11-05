@@ -94,8 +94,8 @@ https://zhuanlan.zhihu.com/p/349346533
 
 function setproxy() {
     export http_proxy=socks5://127.0.0.1:8086
-    export HTTPS_PROXY=socks5://127.0.0.1:8086
-    export FTP_PROXY=socks5://127.0.0.1:8086
+    export https_proxy=socks5://127.0.0.1:8086
+    export ftp_proxy=socks5://127.0.0.1:8086
 }
 
 # unset proxy
@@ -112,8 +112,8 @@ export https_proxy=http://127.0.0.1:8087/
 
 function setproxy() {
     export http_proxy=http://127.0.0.1:8087
-    export HTTPS_PROXY=http://127.0.0.1:8087
-    export FTP_PROXY=http://127.0.0.1:8087
+    export https_proxy=http://127.0.0.1:8087
+    export ftp_proxy=http://127.0.0.1:8087
 }
 
 # unset proxy
