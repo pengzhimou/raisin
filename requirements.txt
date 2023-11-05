@@ -5,8 +5,8 @@ sqlalchemy
 hyperopt
 xlwings
 #sklearn
-#scikit-learn
-#scikit-plot
+scikit-learn
+scikit-plot
 seaborn
 prophet
 statsmodels
@@ -14,3 +14,4 @@ pandas_datareader
 tensorflow
 keras
 yfinance
+tushare

@@ -13,8 +13,39 @@ from keras.layers import Dense, LSTM
 
 # Get the stock quote
 # df = pdr.get_data_yahoo('AAPL', start='2012-01-01', end=datetime.now())
+# df.to_csv("yhAAPL.csv")
 
-df = pd.read_csv('./data/fundamentals.csv',index_col='date')
+#---------------------------------1
+# import datetime as dt
+# import yfinance as yf
+
+# company = 'AAPL'
+
+# # Define a start date and End Date
+# start = dt.datetime(2020,1,1)
+# end =  dt.datetime(2022,1,1)
+
+# # Read Stock Price Data 
+# df = yf.download(company, start , end)
+# # df.to_csv("yhAAPL.csv")
+
+#---------------------------------2
+# import tushare as ts
+# ts.set_token('c75d66a12f099b7ced441563e83234d3b73acf437f532a6759a17f10')
+
+# pro = ts.pro_api()
+# df = pro.trade_cal(exchange='', start_date='20180901', end_date='20231001', fields='date,open,high,low,close,adj close,volume', is_open='0')
+
+
+#---------------------------------3
+df = pd.read_csv('yhAAPL.csv',
+                    index_col='Date')  # 0 1 2 index换成date这一列作为index
+
+# HQDf = pd.read_csv('data/T888_15m.csv',
+#                    index_col='datetime')  # 0 1 2 index换成date这一列作为index
+
+# df.index = pd.to_datetime(df.index)  # 转成2020-01-02 补0的格式
+
 
 # Show teh data
 df
@@ -23,7 +54,7 @@ plt.title('Close Price History')
 plt.plot(df['Close'])
 plt.xlabel('Date', fontsize=18)
 plt.ylabel('Close Price USD ($)', fontsize=18)
-plt.show()
+# plt.show()
 
 # Create a new dataframe with only the 'Close column 
 data = df.filter(['Close'])
