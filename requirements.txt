@@ -15,3 +15,13 @@ tensorflow
 keras
 yfinance
 tushare
+scikeras
+mxnet
+
+
+
+
+
+
+
+
