@@ -37,7 +37,7 @@ class Config:
     # label_in_feature_index = [feature_columns.index(i) for i in label_columns]  # 这样写不行
     label_in_feature_index = (lambda x,y: [x.index(i) for i in y])(feature_columns, label_columns)  # 因为feature不一定从0开始
 
-    predict_day = 10             # 预测未来几天
+    predict_day = 3             # 预测未来几天
 
     # 网络参数
     input_size = len(feature_columns)
