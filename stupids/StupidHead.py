@@ -1,21 +1,15 @@
 # %% 引入包
 import pandas as pd
-import math
-
 import matplotlib as mpl
 import platform
 if platform.platform().startswith("Linux"):
     mpl.use("TkAgg")  # Use TKAgg to show figures
-
 import matplotlib.pyplot as plt
-import talib  # http://mrjbq7.github.io/ta-lib/doc_index.html
 import numpy as np
 from sqlalchemy import create_engine
 from hyperopt import tpe, hp, fmin, STATUS_OK, Trials
 from hyperopt.pyll.base import scope
-import importlib
 import warnings
-import time
 from xlwings import view
 
 warnings.filterwarnings('ignore')

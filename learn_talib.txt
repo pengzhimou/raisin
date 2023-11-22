@@ -1,0 +1,286 @@
+
+
+
+Talib中的指标主要包括下面几类：
+Overlap Studies（交叉分析）：这种类型的指标使用移动平均线、布林带等技术分析工具，通过计算不同时间段内价格的平均值和标准差等统计量，来判断价格趋势、支撑/阻力位等。
+Momentum Indicators（动量指标）：这种类型的指标可以衡量价格变化的速度和力度，以及价格在上升/下降趋势中的动能。常见的动量指标包括RSI、MACD等。
+Volume Indicators（成交量指标）：这种类型的指标可以衡量交易市场的活跃程度和买卖力量，以及价格变化的可靠性。常见的成交量指标包括OBV、ADL等。
+Volatility Indicators（波动率指标）：这种类型的指标可以衡量价格的波动程度和变化幅度，以及价格的风险水平。常见的波动率指标包括ATR、Bollinger Bands等。
+Price Transform（价格变换指标）：这种类型的指标可以将价格进行变换或调整，以便更好地显示价格的趋势和周期性。常见的价格变换指标包括ROC、PPO等。
+Cycle Indicators（周期指标）：这种类型的指标可以识别价格的周期性波动，并帮助确定价格的周期性趋势。常见的周期指标包括DMI、KST等。
+Pattern Recognition（图形识别指标）：这种类型的指标可以识别价格图形中的特定形态和模式，以便预测价格的未来走势。常见的图形识别指标包括头肩顶底、双底等。
+下面列出每一类中含有的指标进行简单解释：
+Overlap Studies（交叉分析）
+BBANDS (Bollinger Bands)：Bollinger Bands是一种基于价格统计的指标，由三条线组成，即中线和上下两条线。中线是一段时间内的简单移动平均线，上下两条线分别是中线加减一个标准差倍数。它可以用来展示价格波动的区间，以及价格在这个区间内的相对位置。
+DEMA (Double Exponential Moving Average)：DEMA是一种平滑的移动平均线，它通过对价格的平均值计算两次来消除价格波动的噪音。DEMA可以更快地反应价格趋势的变化，因此在短期交易中比较常用。
+EMA (Exponential Moving Average)：EMA是一种平滑的移动平均线，它对每个价格点的权值进行指数级别的衰减，以更好地捕捉价格的趋势。EMA可以更快地反应价格趋势的变化，因此在短期交易中比较常用。
+HT_TRENDLINE (Hilbert Transform - Instantaneous Trendline)：HT_TRENDLINE是一种基于Hilbert变换的指标，用于识别价格的趋势。它可以为价格数据生成一个平滑的曲线，以便更好地显示价格的趋势和周期性。
+KAMA (Kaufman Adaptive Moving Average)：KAMA是一种自适应的移动平均线，它可以根据市场的波动性来调整自身的周期，以更好地捕捉价格的趋势。KAMA可以在不同市场状况下自适应地调整自身的周期，因此在长期交易中比较常用。
+MA (Moving average)：MA是一种基本的技术分析指标，它通过计算一段时间内的价格平均值来平滑价格的波动。MA可以用于识别价格的趋势和支撑/阻力位。
+MAMA (MESA Adaptive Moving Average)：MAMA是一种自适应的移动平均线，它可以根据市场的波动性和周期性来调整自身的周期，以更好地捕捉价格的趋势。MAMA可以在不同市场状况下自适应地调整自身的周期，因此在长期交易中比较常用。
+MAVP (Moving average with variable period)：MAVP是一种具有可变周期的移动平均线，它可以通过调整自身的周期来适应市场的变化。MAVP可以在不同市场状况下自适应地调整自身的周期，因此在长期交易中比较常用。
+MIDPOINT (MidPoint over period)：MIDPOINT是一种计算一段时间内价格的中间值的指标。它可以用于识别价格的趋势和支撑/阻力位。
+MIDPRICE (Midpoint Price over period)：MIDPRICE是一种计算一段时间内价格的中间值的指标，同时也考虑了价格的波动范围。MIDPRICE可以用于识别价格的趋势和支撑/阻力位。
+SAR (Parabolic SAR)：SAR是一种基于趋势反转的指标，它用于识别价格的趋势，并在趋势反转时发出信号。SAR会随着价格的变化而变化，并在价格反转时发出信号。
+SAREXT (Parabolic SAR - Extended)：SAREXT是一种扩展了的Parabolic SAR指标，它考虑了价格的波动范围和波动周期。SAREXT可以更好地捕捉价格的趋势，并在趋势反转时发出信号。
+SMA (Simple Moving Average)：SMA是一种基本的移动平均线，它通过计算一段时间内的价格平均值来平滑价格的波动。SMA可以用于识别价格的趋势和支撑/阻力位。
+T3 (Triple Exponential Moving Average)：T3是一种三重指数移动平均线，它通过对价格进行三次平滑来消除价格波动的噪音。T3可以更快地反应价格趋势的变化，因此在短期交易中比较常用。
+TEMA (Triple Exponential Moving Average)：TEMA是一种三重指数移动平均线，它通过对价格进行三次平滑来消除价格波动的噪音。TEMA可以更快地反应价格趋势的变化，因此在短期交易中比较常用。
+TRIMA (Triangular Moving Average)：TRIMA是一种计算一段时间内价格的加权平均值的指标，它的加权方式呈三角形。TRIMA可以用于识别价格的趋势和支撑/阻力位。
+WMA (Weighted Moving Average)：WMA是一种加权移动平均线，它对每个价格点进行加权计算，以更好地捕捉价格的趋势。WMA可以用于识别价格的趋势和支撑/阻力位。
+ADX (Average Directional Movement Index)：ADX是一种趋势指标，用于判断价格的趋势强度。ADX通过计算方向性指数（DI）之间的差异和平均幅度来计算趋势强度。ADX的数值通常在0到100之间，数值越高表示趋势越强。
+Momentum Indicators（动量指标）
+ADXR (Average Directional Movement Index Rating)：ADXR是ADX的平均值，用于平滑ADX的波动。ADXR通常用于识别价格的长期趋势。
+APO (Absolute Price Oscillator)：APO是一种价格振荡指标，用于测量价格的变化幅度。APO通过计算两个移动平均线之间的差异来显示价格的变化幅度。
+Aroon：Aroon是一种价格趋势指标，用于识别价格是否处于上升或下降趋势中。Aroon通过计算最近一段时间内价格的最高值和最低值来显示价格的趋势。
+Aroon Oscillator：Aroon Oscillator是Aroon的差异值，用于显示价格趋势的变化。Aroon Oscillator的数值通常在-100到100之间，数值越高表示价格趋势越强。
+BOP (Balance Of Power)：BOP是一种价格指标，用于测量买卖双方的力量。BOP通过计算当前价格与前一天收盘价之间的差异来显示买卖双方的力量。
+CCI (Commodity Channel Index)：CCI是一种价格振荡指标，用于测量价格的变化幅度。CCI通过计算价格与其移动平均线之间的差异来显示价格的变化幅度。
+CMO (Chande Momentum Oscillator)：CMO是一种动量指标，用于显示价格趋势的变化。CMO通过计算价格的变化率和其移动平均线之间的差异来显示价格的变化幅度。
+DX (Directional Movement Index)：DX是一种趋势指标，用于显示价格趋势的强度。DX通过计算方向性指数（DI）之间的差异来计算趋势强度。
+MACD (Moving Average Convergence/Divergence)：MACD是一种价格趋势指标，用于显示价格的趋势和动能。MACD通过计算两个移动平均线之间的差异来显示价格趋势的变化。
+MACDEXT (MACD with controllable MA type)：MACDEXT是一种扩展了的MACD指标，它允许用户自定义移动平均线的类型和周期，以更好地适应不同的市场状况。
+MACDFIX (Moving Average Convergence/Divergence Fix 12/26)：MACDFIX是一种固定的MACD指标，它使用固定的移动平均线周期（12和26）来计算价格趋势的变化。
+MFI (Money Flow Index)：MFI是一种成交量指标，用于测量资金流入和流出的力量。MFI通过计算成交量和价格之间的关系来显示资金的流入和流出。
+MINUS_DI (Minus Directional Indicator)：MINUS_DI是一种趋势指标，用于显示价格趋势的强度。MINUS_DI通过计算负向运动指标（-DI）之间的差异来计算趋势强度。
+MINUS_DM (Minus Directional Movement)：MINUS_DM是一种趋势指标，用于显示价格趋势的强度。MINUS_DM通过计算前一天最高价与今天最高价之间的差异来计算下降趋势的强度。
+MOM (Momentum)：MOM是一种动量指标，用于显示价格变化的速度和力度。MOM通过计算当前价格与一段时间前的价格之间的差异来显示价格的动量。
+PLUS_DI (Plus Directional Indicator)：PLUS_DI是一种趋势指标，用于显示价格趋势的强度。PLUS_DI通过计算正向运动指标（ DI）之间的差异来计算趋势强度。
+PLUS_DM (Plus Directional Movement)：PLUS_DM是一种趋势指标，用于显示价格趋势的强度。PLUS_DM通过计算前一天最低价与今天最低价之间的差异来计算上升趋势的强度。
+PPO (Percentage Price Oscillator)：PPO是一种价格振荡指标，用于测量价格的变化幅度。PPO通过计算两个移动平均线之间的百分比差异来显示价格的变化幅度。
+ROC (Rate of Change)：ROC是一种动量指标，用于显示价格变化的速度和力度。ROC通过计算当前价格与一段时间前的价格之间的差异来显示价格的动量。
+ROCP (Rate of change Percentage)：ROCP是一种动量指标，用于显示价格变化的速度和力度。ROCP通过计算当前价格与一段时间前的价格之间的百分比差异来显示价格的动量。
+ROCR (Rate of change ratio)：ROCR是一种动量指标，用于显示价格变化的速度和力度。ROCR通过计算当前价格与一段时间前的价格之间的比率来显示价格的动量。
+ROCR100 (Rate of change ratio 100 scale)：ROCR100是一种动量指标，用于显示价格变化的速度和力度。ROCR100通过计算当前价格与一段时间前的价格之间的比率，并将结果乘以100来显示价格的动量。
+RSI (Relative Strength Index)：RSI是一种动量指标，用于显示价格变化的速度和力度。RSI通过计算一段时间内价格上涨和下跌的幅度来显示价格的动量。
+STOCH (Stochastic)：STOCH是一种动量指标，用于显示价格变化的速度和力度。STOCH通过计算当前价格与一段时间内价格波动范围的百分比来显示价格的动量。
+STOCHF (Stochastic Fast)：STOCHF是STOCH的快速版本，它使用更短的时间段来计算价格变化的速度和力度。
+STOCHRSI (Stochastic Relative Strength Index)：STOCHRSI是一种动量指标，用于显示价格变化的速度和力度。STOCHRSI通过将RSI指标应用于STOCH指标来显示价格的动量。
+TRIX (1-day Rate-Of-Change of a Triple Smooth EMA)：TRIX是一种价格趋势指标，用于显示价格的趋势和动能。TRIX通过计算三倍平滑移动平均线的变化率来显示价格趋势的变化。
+ULTOSC (Ultimate Oscillator)：ULTOSC是一种价格振荡指标，用于测量价格的变化幅度。ULTOSC通过计算不同时间段内价格变化的加权平均值来显示价格的变化幅度。
+WILLR (Williams' %R)：WILLR是一种动量指标，用于显示价格变化的速度和力度。WILLR通过计算当前价格与一段时间内价格波动范围的百分比来显示价格的动量。
+Volume Indicators（成交量指标）
+AD (Chaikin Accumulation/Distribution Line)：AD指标是由Marc Chaikin发明的一种趋势指标，可以显示资产的累积和分布情况。AD指标通过计算当日的收盘价与最高价、最低价之间的差异，以及成交量与价格之间的关系来计算分布情况，可以帮助判断价格趋势的强度和方向。
+ADOSC (Chaikin Accumulation/Distribution Oscillator)：ADOSC指标是AD指标的快速移动平均线和慢速移动平均线之间的差异。ADOSC指标可以帮助判断资产的累积和分布情况，以及价格趋势的强度和方向。
+OBV (On Balance Volume)：OBV指标是一种成交量指标，可以显示资产的买入和卖出压力。OBV指标通过计算每日成交量与价格之间的关系来判断资产的买入和卖出压力，可以帮助预测价格的趋势。
+Cycle Indicators（周期指标）
+HT_DCPERIOD (Hilbert Transform - Dominant Cycle Period)：HT_DCPERIOD指标是一种周期指标，可以显示资产价格的周期性变化。HT_DCPERIOD指标通过对价格波动进行适当的滤波和处理，可以帮助识别资产价格的周期性变化，以及预测价格趋势。
+HT_DCPHASE (Hilbert Transform - Dominant Cycle Phase)：HT_DCPHASE指标是一种相位指标，可以显示资产价格周期变化的相位差异。HT_DCPHASE指标可以帮助确定资产价格的周期性变化，以及价格趋势的方向和强度。
+HT_PHASOR (Hilbert Transform - Phasor Components)：HT_PHASOR指标是一种相位指标，可以显示资产价格的相位和幅度。HT_PHASOR指标通过将价格波动分解为正弦和余弦波，可以帮助确定价格的周期性变化和价格趋势的方向。
+HT_SINE (Hilbert Transform - SineWave)：HT_SINE指标是一种周期指标，可以显示资产价格的周期性变化。HT_SINE指标通过对价格波动进行适当的滤波和处理，可以帮助识别资产价格的周期性变化，以及预测价格趋势。
+HT_TRENDMODE (Hilbert Transform - Trend vs Cycle Mode)：HT_TRENDMODE指标是一种趋势指标，可以显示资产价格趋势的方向和强度。HT_TRENDMODE指标通过将价格波动分解为趋势和周期成分，可以帮助确定价格趋势的方向和强度。
+Price Transform（价格变换指标）
+AVGPRICE (Average Price)：AVGPRICE指标是一种价格指标，可以显示资产的平均价格。AVGPRICE指标通过计算当日的开盘价、最高价、最低价和收盘价的平均值来确定资产的平均价格。
+MEDPRICE (Median Price)：MEDPRICE指标是一种价格指标，可以显示资产的中位价格。MEDPRICE指标通过计算当日的最高价和最低价的中位数来确定资产的中位价格。
+TYPPRICE (Typical Price)：TYPPRICE指标是一种价格指标，可以显示资产的典型价格。TYPPRICE指标通过计算当日的开盘价、最高价和最低价的平均值来确定资产的典型价格。
+WCLPRICE (Weighted Close Price)：WCLPRICE指标是一种价格指标，可以显示资产的加权收盘价。WCLPRICE指标通过计算当日的收盘价、最高价和最低价的加权平均值来确定资产的加权收盘价。
+Volatility Indicators（波动率指标）
+ATR (Average True Range)：ATR指标是一种波动性指标，可以显示资产价格波动的幅度。ATR指标通过计算最高价与最低价之间的波动幅度来确定资产的价格波动幅度。
+NATR (Normalized Average True Range)：NATR指标是一种归一化的ATR指标，可以显示资产价格波动的幅度。NATR指标通过将ATR指标的值除以资产的当前价格，可以得到资产价格波动幅度的归一化值。
+TRANGE (True Range)：TRANGE指标是一种价格波动指标，可以显示资产价格波动的幅度。TRANGE指标通过计算当日的最高价与最低价之间的波动幅度，以及当日的收盘价与前一日收盘价之间的波动幅度，可以确定资产价格波动的幅度。
+Pattern Recognition（图形识别指标）
+CDL2CROWS (Two Crows)：Two Crows指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示两只黑色乌鸦形态，意味着卖方力量正在增强，价格可能会下跌。
+CDL3BLACKCROWS (Three Black Crows)：Three Black Crows指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示三只黑色乌鸦形态，表示卖方力量正在增强，价格可能会下跌。
+CDL3INSIDE (Three Inside Up/Down)：Three Inside指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示三根蜡烛，其中第二根蜡烛完全包含在第一根蜡烛中，第三根蜡烛则与前两根蜡烛相反。如果前两根蜡烛是下跌的，第三根蜡烛是上涨的，则表明价格可能会上涨；反之亦然。
+CDL3LINESTRIKE (Three-Line Strike)：Three-Line Strike指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示四根蜡烛，其中前三根蜡烛都是上涨的，第四根蜡烛是下跌的。这意味着卖方力量正在增强，价格可能会下跌。
+CDL3OUTSIDE (Three Outside Up/Down)：Three Outside指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示三根蜡烛，其中第二根蜡烛完全包含在第一根蜡烛中，第三根蜡烛则与前两根蜡烛相反。如果前两根蜡烛是下跌的，第三根蜡烛是上涨的，则表明价格可能会上涨；反之亦然。
+CDL3STARSINSOUTH (Three Stars In The South)：Three Stars In The South指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示三根小蜡烛，都是上涨的。这意味着卖方力量正在增强，价格可能会下跌。
+CDL3WHITESOLDIERS (Three Advancing White Soldiers)：Three Advancing White Soldiers指标是一种趋势确认指标，通常出现在价格反转的底部。指标显示三根白色实体蜡烛，都是上涨的。这意味着买方力量正在增强，价格可能会上涨。
+CDLABANDONEDBABY (Abandoned Baby)：Abandoned Baby指标是一种反转指标，通常出现在价格上涨趋势的顶部或底部。指标显示三个蜡烛，其中第二个蜡烛有一个突出的缺口，意味着价格在一天内迅速反转。
+CDLADVANCEBLOCK (Advance Block)：Advance Block指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示三个连续的上涨蜡烛，每个蜡烛的实体都比前一个蜡烛的实体小。这意味着买方力量正在减弱，价格可能会下跌。
+CDLBELTHOLD (Belt-hold)：Belt-hold指标是一种趋势确认指标，通常出现在价格反转的底部。指标显示一个长实体蜡烛，没有上影线或下影线。如果蜡烛是白色的，则意味着买方力量正在增强，价格可能会上涨；如果蜡烛是黑色的，则意味着卖方力量正在减弱，价格可能会上涨。
+CDLBREAKAWAY (Breakaway)：Breakaway指标是一种反转指标，通常出现在价格上涨或下跌趋势的顶部或底部。指标显示五个连续的蜡烛，其中前三个蜡烛的实体都比较小，后面两个蜡烛的实体都比较大。如果前三个蜡烛是上涨的，则意味着买方力量正在增强，价格可能会上涨；反之亦然。
+CDLCLOSINGMARUBOZU (Closing Marubozu)：Closing Marubozu指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示一个长实体蜡烛，没有上影线或下影线，表示买方或卖方完全控制了市场。
+CDLCONCEALBABYSWALL (Concealing Baby Swallow)：Concealing Baby Swallow指标是一种反转指标，通常出现在价格上涨或下跌趋势的顶部或底部。指标显示两个相邻的蜡烛，其中第二个蜡烛的实体完全包含在第一个蜡烛的实体中，但是第二个蜡烛的颜色与第一个蜡烛不同。
+CDLCOUNTERATTACK (Counterattack)：Counterattack指标是一种反转指标，通常出现在价格上涨或下跌趋势的顶部或底部。指标显示两个相邻的蜡烛，其中第二个蜡烛的实体完全包含在第一个蜡烛的实体中，但是第二个蜡烛的颜色与第一个蜡烛不同。
+CDLDARKCLOUDCOVER (Dark Cloud Cover)：Dark Cloud Cover指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示两个相邻的蜡烛，第一个蜡烛是白色的，第二个蜡烛是黑色的，它的实体覆盖了第一个蜡烛的一部分。
+CDLDOJI (Doji)：Doji指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，几乎没有上影线或下影线。
+CDLDOJISTAR (Doji Star)：Doji Star指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，几乎没有上影线或下影线，而且它的前后两天的蜡烛都是大实体蜡烛。
+CDLDRAGONFLYDOJI (Dragonfly Doji)：Dragonfly Doji指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，几乎没有上影线或下影线，表示买方和卖方力量相当。
+CDLENGULFING (Engulfing Pattern)：Engulfing Pattern指标是一种反转指标，通常出现在价格上涨或下跌趋势的底部或顶部。指标显示两个相邻的蜡烛，第一个蜡烛的实体被第二个蜡烛的实体完全包围。
+CDLEVENINGDOJISTAR (Evening Doji Star)：Evening Doji Star指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示三个蜡烛，其中第二个蜡烛是一个Doji蜡烛，它的上下影线非常短，实体非常小。第三个蜡烛是黑色的，它的实体覆盖了第一个蜡烛的一部分。
+CDLEVENINGSTAR (Evening Star)：Evening Star指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示三个蜡烛，其中第一个蜡烛是白色的，第二个蜡烛是Doji蜡烛，它的上下影线非常短，实体非常小。第三个蜡烛是黑色的，它的实体覆盖了第一个蜡烛的一部分。
+CDLGAPSIDESIDEWHITE (Up/Down-gap side-by-side white lines)：Up/Down-gap side-by-side white lines指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示两个相邻的白色实体蜡烛，它们之间有一个上涨或下跌的缺口。
+CDLGRAVESTONEDOJI (Gravestone Doji)：Gravestone Doji指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，它的上影线非常长，没有下影线，实体非常短。
+CDLHAMMER (Hammer)：Hammer指标是一种趋势确认指标，通常出现在价格反转的底部。指标显示一个蜡烛，它的下影线非常长，没有上影线，实体比较短。
+CDLHANGINGMAN (Hanging Man)：Hanging Man指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示一个蜡烛，它的下影线非常长，没有上影线，实体比较小。
+CDLHARAMI (Harami Pattern)：Harami Pattern指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示两个相邻的蜡烛，其中第一个蜡烛的实体很大，第二个蜡烛的实体非常小，完全包含在第一个蜡烛的实体中。
+CDLHARAMICROSS (Harami Cross Pattern)：Harami Cross Pattern指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示一个Doji蜡烛，它的上下影线非常短，实体非常小，完全包含在前一天的大实体蜡烛中。
+CDLHIGHWAVE (High-Wave Candle)：High-Wave Candle指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，它的上下影线非常长，实体非常短，表示市场的不确定性。
+CDLHIKKAKE (Hikkake Pattern)：Hikkake Pattern指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，上下影线非常长，它的前一天和后一天的蜡烛都比这个蜡烛的实体大。
+CDLHIKKAKEMOD (Modified Hikkake Pattern)：Modified Hikkake Pattern指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，上下影线非常长，它的前一天和后一天的蜡烛都比这个蜡烛的实体大。与Hikkake Pattern不同的是，Modified Hikkake Pattern需要在第四个蜡烛形成后才能确认信号。第四个蜡烛的实体需要完全在前三个蜡烛的实体范围内，而且第四个蜡烛的颜色需要与前三个蜡烛的颜色相反。
+CDLLADDERBOTTOM (Ladder Bottom)：Ladder Bottom指标是一种趋势确认指标，通常出现在价格反转的底部。指标显示三个蜡烛，其中前两个蜡烛是黑色的，第三个蜡烛是白色的，它的实体覆盖了前两个蜡烛的一部分。
+CDLLONGLEGGEDDOJI (Long Legged Doji)：Long Legged Doji指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个Doji蜡烛，它的上下影线非常长，实体非常短。
+CDLLONGLINE (Long Line Candle)：Long Line Candle指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，上下影线非常长。
+CDLMARUBOZU (Marubozu)：Marubozu指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其上下影线非常短或者不存在，实体非常长。
+CDLMATCHINGLOW (Matching Low)：Matching Low指标是一种趋势确认指标，通常出现在价格反转的底部。指标显示两个相邻的蜡烛，它们的实体非常小，它们的最低价格非常接近。
+CDLMATHOLD (Mat Hold)：Mat Hold指标是一种趋势确认指标，通常出现在价格反转的底部。指标显示五个蜡烛，其中前四个蜡烛是白色的，最后一个蜡烛是黑色的，它的实体覆盖了前四个蜡烛的一部分。
+CDLMORNINGDOJISTAR (Morning Doji Star)：Morning Doji Star指标是一种反转指标，通常出现在价格下跌趋势的底部。指标显示三个蜡烛，其中第一个蜡烛是黑色的，第二个蜡烛是Doji蜡烛，它的上下影线非常短，实体非常小。第三个蜡烛是白色的，它的实体覆盖了第一个蜡烛的一部分。
+CDLMORNINGSTAR (Morning Star)：Morning Star指标是一种反转指标，通常出现在价格下跌趋势的底部。指标显示三个蜡烛，其中第一个蜡烛是黑色的，第二个蜡烛是Doji蜡烛，它的上下影线非常短，实体非常小。第三个蜡烛是白色的，它的实体覆盖了第一个蜡烛的一部分。
+CDLONNECK (On-Neck Pattern)：On-Neck Pattern指标是一种反转指标，通常出现在价格下跌趋势的底部。指标显示两个相邻的蜡烛，其中第一个蜡烛是白色的，第二个蜡烛是黑色的，它的实体覆盖了第一个蜡烛的一部分。此外，第二个蜡烛的收盘价格必须完全在第一个蜡烛的实体范围内。
+CDLPIERCING (Piercing Pattern)：Piercing Pattern指标是一种反转指标，通常出现在价格下跌趋势的底部。指标显示两个相邻的蜡烛，其中第一个蜡烛是黑色的，第二个蜡烛是白色的，它的实体覆盖了第一个蜡烛的一部分。此外，第二个蜡烛的开盘价格必须低于第一个蜡烛的最低价格，收盘价格必须高于第一个蜡烛的中点价格。
+CDLRICKSHAWMAN (Rickshaw Man)：Rickshaw Man指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个Doji蜡烛，它的上下影线非常长，实体非常短。
+CDLRISEFALL3METHODS (Rising/Falling Three Methods)：Rising/Falling Three Methods指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示五个蜡烛，其中第一个和最后一个蜡烛颜色相同，中间三个蜡烛的颜色相反。如果前面的趋势是上涨的，那么中间三个蜡烛是黑色的；如果前面的趋势是下跌的，那么中间三个蜡烛是白色的。
+CDLSEPARATINGLINES (Separating Lines)：Separating Lines指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示两个相邻的蜡烛，它们的颜色相同，实体大小和形状也相同，它们之间没有任何上下影线。
+CDLSHOOTINGSTAR (Shooting Star)：Shooting Star指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示一个蜡烛，其上影线非常长，实体非常小，下影线非常短或不存在。
+CDLSHORTLINE (Short Line Candle)：Short Line Candle指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常短，上下影线也非常短。
+CDLSPINNINGTOP (Spinning Top)：Spinning Top指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示一个蜡烛，其实体非常小，上下影线也非常短。
+CDLSTALLEDPATTERN (Stalled Pattern)：Stalled Pattern指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示两个相邻的蜡烛，它们的实体大小和形状相同，它们之间没有任何上下影线。
+CDLSTICKSANDWICH (Stick Sandwich)：Stick Sandwich指标是一种反转指标，通常出现在价格下跌趋势的底部。指标显示三个蜡烛，其中第一个和第三个蜡烛是黑色的，第二个蜡烛是白色的，它的实体覆盖了前两个蜡烛的一部分。
+CDLTAKURI (Takuri Line)：Takuri Line指标是一种反转指标，通常出现在价格下跌趋势的底部。指标显示一个蜡烛，其下影线非常长，实体非常小，上影线非常短或不存在。
+CDLTHRUSTING (Thrusting Pattern)：Thrusting Pattern指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示两个相邻的蜡烛，它们的颜色相反，第二个蜡烛的实体覆盖了第一个蜡烛的一部分。此外，第二个蜡烛的收盘价格必须低于第一个蜡烛的中点价格。
+CDLTRISTAR (Tristar Pattern)：Tristar Pattern指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示三个连续的Doji蜡烛，它们的实体非常小，上下影线非常短，它们的收盘价格在同一水平线上。
+CDLUNIQUE3RIVER (Unique 3 River)：Unique 3 River指标是一种趋势不明确的指标，通常出现在价格反转的底部或顶部。指标显示三个蜡烛，其中第一个和第三个蜡烛是黑色的，第二个蜡烛是白色的，它的实体覆盖了前两个蜡烛的一部分，但不完全覆盖。
+CDLUPSIDEGAP2CROWS (Upside Gap Two Crows)：Upside Gap Two Crows指标是一种反转指标，通常出现在价格上涨趋势的顶部。指标显示三个蜡烛，其中第一个蜡烛是白色的，第二个蜡烛是黑色的，且开盘价格高于第一个蜡烛的收盘价格，第三个蜡烛是黑色的，且开盘价格高于第二个蜡烛的收盘价格。
+CDLXSIDEGAP3METHODS (Upside/Downside Gap Three Methods)：Upside/Downside Gap Three Methods指标是一种趋势确认指标，通常出现在价格反转的底部或顶部。指标显示五个蜡烛，其中第一个和最后一个蜡烛颜色相同，中间三个蜡烛的颜色相反。如果前面的趋势是上涨的，那么中间三个蜡烛是黑色的；如果前面的趋势是下跌的，那么中间三个蜡烛是白色的。
+Statistic Functions（统计函数）
+BETA (Beta)：Beta是一个风险指标，用于衡量股票或投资组合相对于整个市场的波动性。Beta值为1表示该股票或投资组合的波动性与市场相同，Beta值大于1表示该股票或投资组合的波动性高于市场，Beta值小于1表示该股票或投资组合的波动性低于市场。
+CORREL (Pearson's Correlation Coefficient (r))：Correl是一个统计指标，用于衡量两个变量之间的线性关系强度。它的取值范围在-1到1之间，取值为-1表示两个变量呈完全负相关，取值为1表示两个变量呈完全正相关，取值为0表示两个变量之间没有线性关系。
+LINEARREG (Linear Regression)：Linear Regression是一种统计分析方法，用于确定两个变量之间的线性关系。它可以帮助投资者预测股票或投资组合的价格走势。在技术分析中，Linear Regression通常用于绘制趋势线，以确定股票或投资组合价格的长期趋势。
+LINEARREG_ANGLE (Linear Regression Angle)：Linear Regression Angle是Linear Regression的一个变体指标，它衡量的是价格趋势线的斜率。斜率越大，即角度越陡峭，表示价格趋势越强劲。
+LINEARREG_INTERCEPT (Linear Regression Intercept)：Linear Regression Intercept是Linear Regression的一个变体指标，它衡量的是价格趋势线与y轴的截距。截距越高，表示价格趋势线的起点越高。
+LINEARREG_SLOPE (Linear Regression Slope)：Linear Regression Slope是Linear Regression的一个变体指标，它衡量的是价格趋势线的斜率。斜率越大，表示价格趋势越强劲。
+STDDEV (Standard Deviation)：Standard Deviation是一个统计指标，用于衡量数据集合中数据值的离散程度。它的值越大，表示数据的离散程度越大，数据的分布越分散。
+TSF (Time Series Forecast)：Time Series Forecast是一种统计分析方法，用于预测时间序列数据的未来趋势。在股票或投资组合的技术分析中，TSF通常用于预测股票或投资组合的未来价格走势。
+VAR (Variance)：Variance是一个统计指标，用于衡量数据集合中数据值的离散程度。与Standard Deviation类似，Variance的值越大，表示数据的离散程度越大，数据的分布越分散。但与Standard Deviation不同的是，Variance的值是标准差的平方。END
+
+
+
+
+函数名：CDL2CROWS
+名称：Two Crows（两只乌鸦）
+简介：三日K线模式，第一天长阳，第二天高开收阴，第三天再次高开继续收阴，收盘比前一日收盘价低，预示股价下跌。
+函数：def CDL2CROWS(open, high, low, close)2．函数名：CDL3BLACKCROWS
+名称：Three Black Crows（三只乌鸦）
+简介：三日K线模式，连续三根阴线，每日收盘价都下跌且接近最低价，每日开盘价都在上根K线实体内，预示股价下跌。
+函数：def CD3BLACKCROWS(open, high, low, close)3．函数名：CDL3INSIDE
+名称：Three Inside Up/Down（三内部上涨和下跌）
+简介：三日K线模式，母子信号＋长K线，以三内部上涨为例，K线为阴阳阳，第三天收盘价高于第一天开盘价，第二天K线在第一天K线内部，预示着股价上涨。
+函数：def CDL3INSIDE(open, high, low, close)4．函数名：CDL3LINESTRIKE
+名称：Three-Line Strike（三线打击）
+简介：四日K线模式，前三根阳线，每日收盘价都比前一日高，开盘价在前一日实体内，第四日市场高开，收盘价低于第一日开盘价，预示股价下跌。
+函数：def CDL3LINESTRIKE(open, high, low, close)5．函数名：CDL3OUTSIDE
+名称：Three Outside Up/Down（三外部上涨和下跌）
+简介：三日K线模式，与三内部上涨和下跌类似，K线为阴阳阳，但第一日与第二日的K线形态相反，以三外部上涨为例，第一日K线在第二日K线内部，预示着股价上涨。
+函数：def CDL3OUTSIDE(open, high, low, close)6．函数名：CDL3STARSINSOUTH
+名称：Three Stars In The South（南方三星）
+简介：三日K线模式，与大敌当前相反，三日K线皆阴，第一日有长下影线，第二日与第一日类似，K线整体小于第一日，第三日无下影线实体信号，成交价格都在第一日振幅之内，预示下跌趋势反转，股价上升。
+函数：def CDL3STARSINSOUTH(open, high, low, close)7．函数名：CDL3WHITESOLDIERS
+名称：Three Advancing White Soldiers（三个白兵）
+简介：三日K线模式，三日K线皆阳，每日收盘价变高且接近最高价，开盘价在前一日实体上半部，预示股价上升。
+函数：def CDL3WHITESOLDIERS(open, high, low, close)8．函数名：CDLABANDONEDBABY
+名称：Abandoned Baby（弃婴）
+简介：三日K线模式，第二日价格跳空且收十字星（开盘价与收盘价接近，最高价与最低价相差不大），预示趋势反转，发生在顶部下跌，底部上涨。
+函数：def CDLABANDONEDBABY(open, high, low, close, penetration=0)9．函数名：CDLADVANCEBLOCK
+名称：Advance Block（大敌当前）
+简介：三日K线模式，三日都收阳，每日收盘价都比前一日高，开盘价都在前一日实体以内，实体变短，上影线变长。
+函数：def CDLADVANCEBLOCK(open, high, low, close)10．函数名：CDLBELTHOLD
+名称：Belt-Hold（捉腰带线）
+简介：两日K线模式，下跌趋势中，第一日阴线，第二日开盘价为最低价，阳线，收盘价接近最高价，预示价格上涨。
+函数：def CDLBELTHOLD(open, high, low, close)11．函数名：CDLBREAKAWAY
+名称：Breakaway（脱离）
+简介：五日K线模式，以看涨脱离为例，下跌趋势中，第一日长阴线，第二日跳空阴线，延续趋势开始震荡，第五日长阳线，收盘价在第一天收盘价与第二天开盘价之间，预示价格上涨。
+函数：def CDLBREAKAWAY(open, high, low, close)12．函数名：CDLCLOSINGMARUBOZU
+名称：Closing Marubozu（收盘缺影线）
+简介：一日K线模式，以阳线为例，最低价低于开盘价，收盘价等于最高价，预示着趋势持续。
+函数：def CDLCLOSINGMARUBOZU(open, high, low, close)13．函数名：CDLCONCEALBABYSWALL
+名称：Concealing Baby Swallow（藏婴吞没）
+简介：四日K线模式，下跌趋势中，前两日阴线无影线，第三日开盘、收盘价皆低于第二日，且第三日呈现倒锤头，第四日开盘价高于前一日最高价，收盘价低于前一日最低价，预示着底部反转。
+函数：def CDLCONCEALBABYSWALL(open, high, low, close)14．函数名：CDLCOUNTERATTACK
+名称：Counterattack（反击线）
+简介：二日K线模式，与分离线类似。
+函数：def CDLCOUNTERATTACK(open, high, low, close)15．函数名：CDLDARKCLOUDCOVER
+名称：Dark Cloud Cover（乌云压顶）
+简介：二日K线模式，第一日为长阳，第二日开盘价高于前一日最高价，收盘价处于前一日实体中部以下，预示着股价下跌。
+函数：def CDLDARKCLOUDCOVER(open, high, low, close, penetration=0)16．函数名：CDLDOJI
+名称：Doji（十字）
+简介：一日K线模式，开盘价与收盘价基本相同。
+函数：def CDLDOJI(open, high, low, close)17．函数名：CDLDOJISTAR
+名称：Doji Star（十字星）
+简介：一日K线模式，开盘价与收盘价基本相同，上下影线不会很长，预示着当前趋势反转。
+函数：def CDLDOJISTAR(open, high, low, close)18．函数名：CDLDRAGONFLYDOJI
+名称：Dragonfly Doji（蜻蜓十字/T形十字）
+简介：一日K线模式，开盘后价格一路走低，之后收复，收盘价与开盘价相同，预示趋势反转。
+函数：def CDLDRAGONFLYDOJI(open, high, low, close)
+19．函数名：CDLENGULFING
+名称：Engulfing Pattern（吞噬模式）
+简介：两日K线模式，分多头吞噬和空头吞噬，以多头吞噬为例，第一日为阴线，第二日为阳线，第一日的开盘价和收盘价在第二日开盘价和收盘价之内，但不能完全相同。
+函数：def CDLENGULFING(open, high, low, close)20．函数名：CDLEVENINGDOJISTAR
+名称：Evening Doji Star（十字暮星）
+简介：三日K线模式，基本模式为暮星，第二日收盘价和开盘价相同，预示顶部反转。
+函数：def CDLEVENINGDOJISTAR(open, high, low, close, penetration=0)21．函数名：CDLEVENINGSTAR
+名称：Evening Star（暮星）
+简介：三日K线模式，与晨星相反，上升趋势中，第一日为阳线，第二日价格振幅较小，第三日为阴线，预示顶部反转。
+函数：def CDLEVENINGSTAR(open, high, low, close, penetration=0)22．函数名：CDLGAPSIDESIDEWHITE
+名称：Up/Down-gap side-by-side white lines（向上／下跳空并列阳线）
+简介：二日K线模式，上升趋势向上跳空，下跌趋势向下跳空，第一日与第二日有相同的开盘价，实体长度差不多，则趋势持续。
+函数：def CDLGAPSIDESIDEWHITE(open, high, low, close)23．函数名：CDLGRAVESTONEDOJI
+名称：Gravestone Doji（墓碑十字／倒T十字）
+简介：一日K线模式，开盘价与收盘价相同，上影线长，无下影线，预示底部反转。
+函数：def CDLGRAVESTONEDOJI(open, high, low, close)24．函数名：CDLHAMMER
+名称：Hammer（锤头）
+简介：一日K线模式，实体较短，无上影线，下影线大于实体长度两倍，处于下跌趋势底部，预示反转。
+函数：def CDLHAMMER(open, high, low, close)25．函数名：CDLHANGINGMAN
+名称：Hanging Man（上吊线）
+简介：一日K线模式，形状与锤子类似，处于上升趋势的顶部，预示着趋势反转。
+函数：def CDLHANGINGMAN(open, high, low, close)26．函数名：CDLHARAMI
+名称：Harami Pattern（母子线）
+简介：二日K线模式，分多头母子与空头母子，两者相反，以多头母子为例，在下跌趋势中，第一日K线长阴，第二日开盘价和收盘价在第一日价格振幅之内，为阳线，预示趋势反转，股价上升。
+函数：def CDLHARAMI(open, high, low, close)27．函数名：CDLHARAMICROSS
+名称：Harami Cross Pattern（十字孕线）
+简介：二日K线模式，与母子线类似，若第二日K线是十字线，便称为十字孕线，预示着趋势反转。
+函数：def CDLHARAMICROSS(open, high, low, close)28．函数名：CDLHIGHWAVE
+名称：High-Wave Candle（风高浪大线）
+简介：三日K线模式，具有极长的上／下影线与短的实体，预示着趋势反转。
+函数：def CDLHIGHWAVE(open, high, low, close)29．函数名：CDLHIKKAKE
+名称：Hikkake Pattern（陷阱）
+简介：三日K线模式，与母子线类似，第二日价格在前一日实体范围内，第三日收盘价高于前两日，反转失败，趋势继续。
+函数：def CDLHIKKAKE(open, high, low, close)30．函数名：CDLHIKKAKEMOD
+名称：Modified Hikkake Pattern（修正陷阱）
+简介：三日K线模式，与陷阱类似，上升趋势中，第三日跳空高开；下跌趋势中，第三日跳空低开，反转失败，趋势继续。
+函数：def CDLHIKKAKEMOD(open, high, low, close)31．函数名：CDLHOMINGPIGEON
+名称：Homing Pigeon（家鸽）
+简介：二日K线模式，与母子线类似，不同的是二日K线颜色相同，第二日最高价、最低价都在第一日实体之内，预示着趋势反转。
+函数：def CDLHOMINGPIGEON(open, high, low, close)32．函数名：CDLIDENTICAL3CROWS
+名称：Identical Three Crows（三胞胎乌鸦）
+简介：三日K线模式，上涨趋势中，三日都为阴线，长度大致相等，每日开盘价等于前一日收盘价，收盘价接近当日最低价，预示价格下跌。
+函数：def CDLIDENTICAL3CROWS(open, high, low, close)33．函数名：CDLINNECK
+名称：In-Neck Pattern（颈内线）
+简介：二日K线模式，下跌趋势中，第一日为长阴线，第二日开盘价较低，收盘价略高于第一日收盘价，阳线，实体较短，预示着下跌继续。
+函数：def CDLINNECK(open, high, low, close)34．函数名：CDLINVERTEDHAMMER
+名称：Inverted Hammer（倒锤头）
+简介：一日K线模式，上影线较长，长度为实体的2倍以上，无下影线，在下跌趋势底部，预示着趋势反转。
+函数：def CDLINVERTEDHAMMER(open, high, low, close)35．函数名：CDLKICKING
+名称：Kicking（反冲形态）
+简介：二日K线模式，与分离线类似，两日K线为秃线，颜色相反，存在跳空缺口。
+函数：def CDLKICKING(open, high, low, close)36．函数名：CDLKICKINGBYLENGTH
+名称：Kicking - bull/bear determined by the longer marubozu（由较长缺影线决定的反冲形态）
+简介：二日K线模式，与反冲形态类似，较长缺影线决定价格的涨跌。
+函数：def CDLKICKINGBYLENGTH(open, high, low, close)37．函数名：CDLSTALLEDPATTERN
+名称：Stalled Pattern（停顿形态）
+简介：三日K线模式，上涨趋势中，第二日为长阳线，第三日开盘于前一日收盘价附近，短阳线，预示着上涨结束。
+函数：def CDLSTALLEDPATTERN(open, high, low, close)38．函数名：CDLSTICKSANDWICH
+名称：Stick Sandwich（条形三明治）
+简介：三日K线模式，第一日为长阴线，第二日为阳线，开盘价高于前一日收盘价，第三日开盘价高于前两日最高价，收盘价与第一日收盘价相同。
+函数：def CDLSTICKSANDWICH(open, high, low, close)39．函数名：CDLTAKURI
+名称：Takuri（Dragonfly Doji with very long lower shadow，探水竿）
+简介：一日K线模式，大致与蜻蜓十字相同，下影线长度长。
+函数：def CDLTAKURI(open, high, low, close)40．函数名：CDLTASUKIGAP
+名称：Tasuki Gap（跳空并列阴阳线）
+简介：三日K线模式，分上涨和下跌，以上升为例，前两日为阳线，第二日跳空，第三日为阴线，收盘价于缺口中，上升趋势持续。
+函数：def CDLTASUKIGAP(open, high, low, close)41．函数名：CDLTHRUSTING
+名称：Thrusting Pattern（插入）
+简介：二日K线模式，与颈上线类似，下跌趋势中，第一日为长阴线，第二日开盘价跳空，收盘价略低于前一日实体中部，与颈上线相比实体较长，预示着趋势持续。
+函数：def CDLTHRUSTING(open, high, low, close)42．函数名：CDLTRISTAR
+名称：Tristar Pattern（三星）
+简介：三日K线模式，由三个十字组成，第二日的十字必须高于或者低于第一日和第三日，预示着反转。
+函数：def CDLTRISTAR(open, high, low, close)43．函数名：CDLUNIQUE3RIVER
+名称：Unique 3 River（奇特三河床）
+简介：三日K线模式，下跌趋势中，第一日为长阴线，第二日为锤头，最低价创新低，第三日开盘价低于第二日收盘价，收阳线，收盘价不高于第二日收盘价，预示着反转，第二日下影线越长可能性越大。
+函数：def CDLUNIQUE3RIVER(open, high, low, close)44．函数名：CDLUPSIDEGAP2CROWS
+名称：Upside Gap Two Crows（向上跳空的两只乌鸦）
+简介：三日K线模式，第一日为阳线，第二日跳空以高于第一日最高价开盘，收阴线，第三日开盘价高于第二日，收阴线，与第一日比仍有缺口。
+函数：def CDLUPSIDEGAP2CROWS(open, high, low, close)45．函数名：CDLXSIDEGAP3METHODS
+名称：Upside/Downside Gap Three Methods（上升／下降跳空三法）
+简介：五日K线模式，以上升跳空三法为例，上涨趋势中，第一日为长阳线，第二日为短阳线，第三日为跳空阳线，第四日为阴线，开盘价与收盘价于前两日实体内，第五日为长阳线，收盘价高于第一日收盘价，预示股价上升。
+函数：def CDLXSIDEGAP3METHODS(open, high, low, close)

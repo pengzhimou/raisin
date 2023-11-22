@@ -1,6 +1,10 @@
 from stupids.StupidHead import *
 import pandas as pd
 from xlwings import view
+import math
+import talib  # http://mrjbq7.github.io/ta-lib/doc_index.html
+import time
+import importlib
 
 def doubleMa(*args, **kwargs):
     TradedHQDf = args[0]
