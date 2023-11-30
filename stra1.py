@@ -6,6 +6,14 @@ import talib  # http://mrjbq7.github.io/ta-lib/doc_index.html
 import time
 import importlib
 
+
+class StrategicDecision:
+    def __init__(self, HQDf: pd.DataFrame):
+        return
+    
+    
+
+
 def doubleMa(*args, **kwargs):
     TradedHQDf = args[0]
     fast_ma = talib.SMA(TradedHQDf.close, timeperiod=kwargs['fast'])
