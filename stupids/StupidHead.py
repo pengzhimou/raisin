@@ -84,7 +84,7 @@ def plotResult(HQDf: pd.DataFrame) -> typing.NoReturn:
     HQDf['short'] = HQDf.close[HQDf.pos < 0]
     HQDf.loc[:, ['long', 'short', 'empty']].plot(ax=axes[3],
                                                  title='开平仓点位',
-                                                 color=["r", "g", "grey"])
+                                                 color=["red", "green", "grey"])
     plt.show()
 
 
@@ -95,12 +95,16 @@ def CTA(HQDf: pd.DataFrame, loadBars: int, strafunc, **kwargs) -> tuple[pd.DataF
 
         TradedHQDf = HQDf[:idx]  # 每次处理本日前所有数据，递增
         ineridx = TradedHQDf.shape[0]  # 一行内的idx
-        if ineridx < loadBars:  # 分析周期，最少多少天
+        if ineridx < loadBars:  # 分析周期，最少多少周期
             continue
         strafunc(TradedHQDf, HQDf, idx, ineridx, **kwargs)  # 策略函数处理上面周期的数据
     else:
         HQDf[:idx].pos = HQDf[:idx].pos.fillna(
         method='ffill',inplace=True)  # 本次处理本日前所有的都fillna
+
+    view(HQDf)
+
+
 
     HQDf, StatDf = CalculateResult(HQDf)
     return HQDf, StatDf
