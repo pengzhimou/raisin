@@ -4,13 +4,34 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 import matplotlib.pyplot as plt
+import tushare as ts
 
-# 读取历史股票数据
-data = pd.read_csv('yhAAPL.csv')
+#####数据准备开始
+# ###### 读取历史股票数据
+# data = pd.read_csv('yhAAPL.csv')
 
-# 数据预处理 - 移除Adj Close列
+# # 数据预处理 - 移除Adj Close列
+# scaler = MinMaxScaler(feature_range=(0, 1))
+# scaled_data = scaler.fit_transform(data[['Open', 'High', 'Low', 'close', 'Volume']])
+
+###### 设置Tushare token
+ts.set_token('c75d66a12f099b7ced441563e83234d3b73acf437f532a6759a17f10')
+pro = ts.pro_api()
+
+# 获取数据
+data = pro.daily(ts_code='000020.SZ', start_date='20220101', end_date='20240116')
+print(data)
+
+
+
+# 反转数据，将数据按时间顺序排列
+data = data.iloc[::-1]
+
+# 选择使用的列
 scaler = MinMaxScaler(feature_range=(0, 1))
-scaled_data = scaler.fit_transform(data[['Open', 'High', 'Low', 'Close', 'Volume']])
+scaled_data = scaler.fit_transform(data[['open', 'high', 'low', 'close', 'vol']])
+
+#####数据准备结束
 
 # 构建训练集和测试集
 def create_dataset(data, time_step):
@@ -38,8 +59,8 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 # 训练模型
 model.fit(X_train, y_train, epochs=100, batch_size=32)
 
-# 滚动预测未来10天股票走势
-pred_days = 10
+# 滚动预测未来5天股票走势
+pred_days = 5
 predictions = []
 current_data = scaled_data[-time_step:]  # 最后time_step天的数据作为初始数据
 
@@ -56,12 +77,21 @@ predictions = np.array(predictions).reshape(-1, 1)
 predictions = np.concatenate((np.zeros((len(predictions), 2)), predictions, predictions, np.zeros((len(predictions), 1))), axis=1)
 predictions = scaler.inverse_transform(predictions)[:, 3]
 
+print(predictions)
+
 # 绘制历史数据和预测数据的股价走势图
+dates = data['trade_date']
+close_prices = data['close']
+
+
 plt.figure(figsize=(12, 6))
-plt.plot(data['Close'], label='Historical Close')
+plt.plot(dates, close_prices, label='Close Price')
 plt.plot(range(len(data), len(data) + pred_days), predictions, label='Predicted Close', color='r')
 plt.xlabel('Day')
-plt.ylabel('Close')
+plt.ylabel('close')
 plt.title('Historical and Predicted Close')
+plt.xticks(rotation=45)  # 旋转x轴标签，以便更好地显示日期
 plt.legend()
+plt.grid()
 plt.show()
+
