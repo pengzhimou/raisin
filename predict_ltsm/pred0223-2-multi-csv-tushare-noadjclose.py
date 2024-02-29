@@ -19,7 +19,7 @@ ts.set_token('c75d66a12f099b7ced441563e83234d3b73acf437f532a6759a17f10')
 pro = ts.pro_api()
 
 # 获取数据
-data = pro.daily(ts_code='000020.SZ', start_date='20220101', end_date='20240116')
+data = pro.daily(ts_code='600000.SH', start_date='20220101', end_date='20240229')
 print(data)
 
 
