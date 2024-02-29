@@ -2,16 +2,18 @@ import tushare as ts
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense
-from tensorflow.keras.optimizers import Adam
+from keras.models import Sequential
+from keras.layers import LSTM, Dense
+from keras.optimizers import Adam
+import matplotlib.pyplot as plt
 
-# 设置Tushare token
+###### 设置Tushare token
 ts.set_token('c75d66a12f099b7ced441563e83234d3b73acf437f532a6759a17f10')
 pro = ts.pro_api()
 
 # 获取数据
-data = pro.daily(ts_code='000001.SZ', start_date='20180701', end_date='20241115')
+data = pro.daily(ts_code='000020.SZ', start_date='20220101', end_date='20240229')
+print(data.head())
 
 # 选择使用的列
 features = ['open', 'high', 'low', 'close', 'pre_close', 'change', 'pct_chg', 'vol', 'amount']
@@ -21,17 +23,19 @@ data = data[features]
 scaler = MinMaxScaler(feature_range=(0, 1))
 data_scaled = scaler.fit_transform(data)
 
+#####数据准备结束
+
 # 准备数据集的函数
-def prepare_data(data, n_past, n_future):
+def create_dataset(data, n_past, n_future):
     X, y = [], []
     for i in range(n_past, len(data) - n_future +1):
         X.append(data[i - n_past:i, 0:data.shape[1]])
         y.append(data[i + n_future - 1:i + n_future, 3])  # 使用'close'列作为预测目标
     return np.array(X), np.array(y)
 
-n_past = 60  # 使用过去60天的数据
+n_past = 30  # 使用过去60天的数据
 n_future = 1  # 预测未来1天
-X, y = prepare_data(data_scaled, n_past, n_future)
+X, y = create_dataset(data_scaled, n_past, n_future)
 
 # 创建LSTM模型
 model = Sequential([
@@ -67,7 +71,6 @@ predictions = close_scaler.inverse_transform(np.array(predictions)[:,0].reshape(
 
 print(predictions)
 
-import matplotlib.pyplot as plt
 
 # 假设你已经有了整个时间序列的历史收盘价数据
 # 假设这个历史数据存储在名为data的Pandas DataFrame中的'close'列

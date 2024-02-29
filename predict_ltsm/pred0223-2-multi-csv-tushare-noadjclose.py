@@ -1,35 +1,30 @@
+import tushare as ts
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
+from keras.optimizers import Adam
 import matplotlib.pyplot as plt
-import tushare as ts
-
-#####数据准备开始
-# ###### 读取历史股票数据
-# data = pd.read_csv('yhAAPL.csv')
-
-# # 数据预处理 - 移除Adj Close列
-# scaler = MinMaxScaler(feature_range=(0, 1))
-# scaled_data = scaler.fit_transform(data[['Open', 'High', 'Low', 'close', 'Volume']])
 
 ###### 设置Tushare token
 ts.set_token('c75d66a12f099b7ced441563e83234d3b73acf437f532a6759a17f10')
 pro = ts.pro_api()
 
 # 获取数据
-data = pro.daily(ts_code='000020.SZ', start_date='20220101', end_date='20240116')
-print(data)
-
-
+data = pro.daily(ts_code='000020.SZ', start_date='20220101', end_date='20240229')
+print(data.head())
 
 # 反转数据，将数据按时间顺序排列
 data = data.iloc[::-1]
 
 # 选择使用的列
+features = ['open', 'high', 'low', 'close', 'vol']
+data = data[features]
+
+# 数据预处理：归一化
 scaler = MinMaxScaler(feature_range=(0, 1))
-scaled_data = scaler.fit_transform(data[['open', 'high', 'low', 'close', 'vol']])
+data_scaled = scaler.fit_transform(data)
 
 #####数据准备结束
 
@@ -42,7 +37,7 @@ def create_dataset(data, time_step):
     return np.array(X), np.array(y)
 
 time_step = 30  # 时间步长，可以根据需要调整
-X, y = create_dataset(scaled_data, time_step)
+X, y = create_dataset(data_scaled, time_step)
 
 # 划分训练集和测试集
 train_size = int(len(data) * 0.8)
@@ -54,7 +49,8 @@ model = Sequential()
 model.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], X_train.shape[2])))
 model.add(LSTM(units=50))
 model.add(Dense(1))
-model.compile(optimizer='adam', loss='mean_squared_error')
+# model.compile(optimizer='adam', loss='mean_squared_error')
+model.compile(optimizer=Adam(learning_rate=0.01), loss='mean_squared_error')
 
 # 训练模型
 model.fit(X_train, y_train, epochs=100, batch_size=32)
@@ -62,7 +58,7 @@ model.fit(X_train, y_train, epochs=100, batch_size=32)
 # 滚动预测未来5天股票走势
 pred_days = 5
 predictions = []
-current_data = scaled_data[-time_step:]  # 最后time_step天的数据作为初始数据
+current_data = data_scaled[-time_step:]  # 最后time_step天的数据作为初始数据
 
 for i in range(pred_days):
     input_data = current_data[-time_step:].reshape(1, time_step, 5)  # 输入数据调整为5列
